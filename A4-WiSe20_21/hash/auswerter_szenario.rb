@@ -1,0 +1,28 @@
+require_relative "Auswerter"
+require_relative "../utils"
+
+auswerter = Auswerter.new()
+trenner("4.4.1 in_flaches_array")
+p auswerter.in_flaches_array()
+trenner("4.4.2 alle_produkte")
+p auswerter.alle_produkte().to_a
+trenner("4.2.3 wert({'Insalata frutti di mare '=>[1, 15], 'Cozze al marinara'=>[1, 16], 'Saltimboca'=>[1, 17], 'Panna cotta'=>[1, 7], 'Tirami su'=>[1, 8], 'Spuma'=>[2, 8], 'Cappucino'=>[2, 8], 'Espresso'=>[2, 8]})")
+p auswerter.wert({"Insalata frutti di mare"=>[1, 15], "Cozze al marinara"=>[1, 16], "Saltimboca"=>[1, 17], "Panna cotta"=>[1, 7], "Tirami su"=>[1, 8], "Spuma"=>[2, 8], "Cappucino"=>[2, 8], "Espresso"=>[2, 8]})
+trenner("4.2.4 in_bestellung_mit_wert")
+p auswerter.in_bestellung_mit_wert()
+trenner("4.2.5 gesamt_bestellwert")
+p auswerter.gesamt_bestellwert()
+trenner("4.2.6 hoechste_bestellung")
+p hoechste = auswerter.hoechste_bestellung()
+trenner("4.2.7 anzahl_produkte(#{auswerter['5']})")
+p auswerter.anzahl_produkte(auswerter["5"])
+trenner("4.2.8 umfangreichste_bestellung")
+p auswerter.umfangreichste_bestellung()
+trenner("4.2.9 in_produkte_mit_gesamt_bestellwert")
+pp_hash(auswerter.in_produkte_mit_gesamt_bestellwert())
+trenner("4.2.10 in_produkte_mit_gesamt_bestellanzahl")
+pp_hash(auswerter.produkte_mit_gesamt_bestellanzahl())
+trenner("4.2.11 sortiere_produkte_nach_anzahl_name")
+pp_hash(auswerter.sortiere_produkte_nach_anzahl_name())
+trenner("4.2.12 sortiere_produkte_nach_anzahl_name_absteigend")
+pp_hash(auswerter.sortiere_produkte_nach_anzahl_name_absteigend())
